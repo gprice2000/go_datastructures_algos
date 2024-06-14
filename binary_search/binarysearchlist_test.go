@@ -1,4 +1,4 @@
-package dsa_example
+package binary_search
 
 import (
 	"testing"
@@ -30,7 +30,7 @@ func Test_CalcMid(t *testing.T) {
 	}
 
 }
-func Test_binarysearchlist(t *testing.T) {
+func Test_BinarySearch(t *testing.T) {
 	sortedList := []int{1, 3, 4, 69, 71, 81, 90, 99, 420, 1337, 69420}
 
 	testCases := []testCase{

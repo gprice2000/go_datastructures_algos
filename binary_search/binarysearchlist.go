@@ -1,4 +1,4 @@
-package dsa_example
+package binary_search
 
 import "math"
 
