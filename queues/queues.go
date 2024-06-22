@@ -26,6 +26,9 @@ func Enqueue(q *Queue, data int) error {
 		q.tail.next = &newNode
 		q.tail = &newNode
 	}
+
+	q.length++
+
 	return nil
 
 }
@@ -52,6 +55,9 @@ func Peek(q *Queue) (int, error) {
 
 	if q == nil {
 		return -1, errors.New("Queue passed as param is nil")
+	} else if q.head == nil {
+		return -1, errors.New("Queue empty, cannot peek")
 	}
-	return 0, nil
+
+	return q.head.data, nil
 }
