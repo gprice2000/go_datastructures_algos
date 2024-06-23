@@ -41,14 +41,16 @@ func Dequeue(q *Queue) (int, error) {
 		return -1, errors.New("Queue already empty, cannot dequeue")
 	}
 	var removedNode *Node
+	removedNode = q.head
 
 	if q.head == q.tail {
-		removedNode = q.head
 		q.head = nil
 		q.tail = nil
 	} else {
 		q.head = q.head.next
 	}
+
+	q.length--
 	return removedNode.data, nil
 }
 func Peek(q *Queue) (int, error) {
