@@ -72,13 +72,17 @@ func TestQueues(t *testing.T) {
 
 	})
 
-	// t.Run("Testing peek", func(t *testing.T) {
-	//
-	//		testStruct:= Queue{0, nil, nil}
-	//	})
-	//
-	// t.Run("Testing multiple operations", func(t *testing.T) {
-	//
-	//		testStruct:= Queue{0, nil, nil}
-	//	})
+	t.Run("Testing peek", func(t *testing.T) {
+		initQueue(t)
+		want := 1
+		got, err := Peek(&testStruct)
+
+		if err != nil {
+			t.Error(err)
+		}
+		if got != want {
+			t.Errorf("Got: %d || Want: %d", got, want)
+		}
+
+	})
 }
