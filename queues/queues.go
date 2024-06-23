@@ -38,7 +38,7 @@ func Dequeue(q *Queue) (int, error) {
 	if q == nil {
 		return -1, errors.New("Queue passed as param is nil")
 	} else if q.head == nil {
-		return -1, errors.New("Queue already empty, cannot dequeue")
+		return 0, errors.New("Queue already empty, cannot dequeue")
 	}
 	var removedNode *Node
 	removedNode = q.head

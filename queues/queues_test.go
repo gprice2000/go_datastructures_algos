@@ -48,7 +48,7 @@ func TestQueues(t *testing.T) {
 			t.Error(err)
 		}
 		if head != 3 || tail != 4 {
-			t.Errorf("Got: %d (head) %d (tail) || Want: %d (head) %d(tail) in Func (Dequeue)", head, tail, 3, 4)
+			t.Errorf("Got: %d (head) %d (tail) || Want: %d (head) %d(tail) in Func (Dequeue)", head, tail, 4, 4)
 		}
 		if length != 2 {
 			t.Errorf("Expected Length: 2 || Actual Length: %d", length)
@@ -56,11 +56,22 @@ func TestQueues(t *testing.T) {
 
 	})
 
-	// t.Run("Testing dequeue on empty queue", func(t *testing.T) {
-	//
-	//		testStruct:= Queue{0, nil, nil}
-	//	})
-	//
+	t.Run("Testing dequeue on empty queue", func(t *testing.T) {
+		testStruct = Queue{0, nil, nil}
+		_, err := Dequeue(&testStruct)
+		expectedError := "Queue already empty, cannot dequeue"
+
+		if err == nil {
+			t.Error("Expected empty Queue error on empty Queue. Did not receive one")
+		}
+
+		errorString := err.Error()
+		if errorString != expectedError {
+			t.Errorf("Got: %v || Want: %v", errorString, expectedError)
+		}
+
+	})
+
 	// t.Run("Testing peek", func(t *testing.T) {
 	//
 	//		testStruct:= Queue{0, nil, nil}
