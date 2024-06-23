@@ -1,6 +1,9 @@
 package queues
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 type Node struct {
 	data int
@@ -62,4 +65,27 @@ func Peek(q *Queue) (int, error) {
 	}
 
 	return q.head.data, nil
+}
+
+func PrintQueue(q *Queue) error {
+	var err error
+
+	if q == nil {
+		return errors.New("Queue passed as param is nil")
+	} else if q.head == nil {
+		return errors.New("Queue empty, cannot peek")
+	}
+
+	fmt.Print("Queue: [")
+
+	for cur := q.head; cur != nil; cur = cur.next {
+		if cur.next != nil {
+
+			fmt.Printf("%d -> ", cur.data)
+		} else {
+			fmt.Printf("%d", cur.data)
+		}
+	}
+	fmt.Print("]\n")
+	return err
 }

@@ -34,6 +34,7 @@ func TestQueues(t *testing.T) {
 		if length != 4 {
 			t.Errorf("Expected Length: 4 || Actual Length: %d", length)
 		}
+
 	})
 	t.Run("Testing dequeue", func(t *testing.T) {
 		initQueue(t)
